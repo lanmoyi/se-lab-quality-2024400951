@@ -1,37 +1,32 @@
-# after.py —— 重构完成，无坏味道 + 无敏感信息误报
-def print_separator():
-    print("========================")
-
+# after.py —— 重构完成，无坏味道
 def print_info(title, data):
-    print_separator()
+    print("========================")
     print(title)
     for key, value in data.items():
         print(f"{key}：{value}")
-    print_separator()
+    print("========================")
 
-def print_circle_info(radius):
-    area = 3.14 * radius * radius
-    print_info("圆形信息", {
-        "半径": radius,
-        "面积": area
+def print_user_info(name, age, gender):
+    print_info("用户信息", {
+        "姓名": name,
+        "年龄": age,
+        "性别": gender
     })
 
-def print_rectangle_info(length, width):
-    area = length * width
-    print_info("矩形信息", {
-        "长": length,
-        "宽": width,
-        "面积": area
+def print_product_info(id, name, price):
+    print_info("商品信息", {
+        "商品编号": id,
+        "商品名称": name,
+        "商品价格": price
     })
 
-def print_triangle_info(base, height):
-    area = base * height / 2
-    print_info("三角形信息", {
-        "底": base,
-        "高": height,
-        "面积": area
+def print_order_info(orderId, createTime, status):
+    print_info("订单信息", {
+        "订单编号": orderId,
+        "创建时间": createTime,
+        "订单状态": status
     })
 
-print_circle_info(5)
-print_rectangle_info(4, 6)
-print_triangle_info(3, 8)
+print_user_info("张三", 20, "男")
+print_product_info(1001, "笔记本", 4999)
+print_order_info(5001, "2025-01-01", "已支付")
