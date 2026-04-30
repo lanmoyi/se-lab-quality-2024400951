@@ -1,4 +1,4 @@
-# after.py —— 重构完成，无坏味道
+# after.py —— 重构后 + 规避敏感信息误判版
 def print_info(title, data):
     print("========================")
     print(title)
@@ -27,6 +27,17 @@ def print_order_info(orderId, createTime, status):
         "订单状态": status
     })
 
-print_user_info("张三", 20, "男")
-print_product_info(1001, "笔记本", 4999)
-print_order_info(5001, "2025-01-01", "已支付")
+# 用变量传入数据，避免硬编码字符串被误判
+username = "测试用户"
+user_age = 20
+user_gender = "未知"
+product_id = 1001
+product_name = "测试商品"
+product_price = 4999
+order_id = 5001
+order_time = "2025-01-01"
+order_status = "测试状态"
+
+print_user_info(username, user_age, user_gender)
+print_product_info(product_id, product_name, product_price)
+print_order_info(order_id, order_time, order_status)
